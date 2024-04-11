@@ -24,7 +24,7 @@ import (
 
 const (
 	// DefaultRegistry through which containers of functions will be shuttled.
-	DefaultRegistry = "index.docker.io"
+	DefaultRegistry = "quay.io"
 
 	// DefaultTemplate is the default function signature / environmental context
 	// of the resultant function.  All runtimes are expected to have at least

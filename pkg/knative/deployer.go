@@ -394,13 +394,15 @@ func generateNewService(f fn.Function, decorator DeployDecorator) (*v1.Service, 
 	seccompProfile := corev1.SeccompProfile{
 		Type: corev1.SeccompProfileType("RuntimeDefault"),
 	}
+	//userId := int64(1000)
 	container := corev1.Container{
-		Image: f.ImageWithDigest(),
+		Image: "quay.io/gvyas/dev/hello-world:latest",
 		SecurityContext: &corev1.SecurityContext{
 			RunAsNonRoot:             &runAsNonRoot,
 			AllowPrivilegeEscalation: &allowPrivilegeEscalation,
 			Capabilities:             &capabilities,
 			SeccompProfile:           &seccompProfile,
+			//RunAsUser:                &userId,
 		},
 	}
 	setHealthEndpoints(f, &container)
